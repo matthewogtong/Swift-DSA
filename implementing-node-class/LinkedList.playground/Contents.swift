@@ -2,24 +2,26 @@ import UIKit
 
 class Node<Value> {
     
-    var value :Value
-    var next :Node?
+    var value: Value
+    var next: Node?
     
-    init(value :Value, next :Node? = nil) {
+    init(value: Value, next: Node? = nil) {
         self.value = value
         self.next = next
     }
+    
 }
 
-extension Node :CustomStringConvertible {
+extension Node: CustomStringConvertible {
     
-    var description :String {
+    var description: String {
         
         guard let next = next else {
             return "\(value)"
         }
         
         return "\(value) -> " + String(describing: next) + " "
+        
     }
     
 }
@@ -32,6 +34,3 @@ node1.next = node2
 node2.next = node3
 
 print(node1)
-
-
-
