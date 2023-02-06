@@ -11,6 +11,26 @@ struct LinkedList<Value> {
     
     init() { }
     
+    mutating func push(_ value: Value) {
+        
+        head = Node(value: value, next: head)
+        if tail == nil {
+            tail = head
+        }
+    }
+    
+}
+
+extension LinkedList: CustomStringConvertible {
+    
+    var description: String {
+        guard let head = head else {
+            return "Empty List"
+        }
+        
+        return String(describing: head)
+    }
+    
 }
 
 class Node<Value> {
@@ -39,4 +59,9 @@ extension Node: CustomStringConvertible {
     
 }
 
-let list = LinkedList<Int>()
+var list = LinkedList<Int>()
+list.push(2)
+list.push(3)
+list.push(22)
+
+print(list)
